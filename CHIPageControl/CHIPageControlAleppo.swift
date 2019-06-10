@@ -68,9 +68,13 @@ open class CHIPageControlAleppo: CHIBasePageControl {
 
         var frame = active.frame
 
-        frame.origin.x = CGFloat(normalized) + firstFrame.origin.x
-        frame.size.width = frame.height * CGFloat(mult)
-        frame.size.height = self.diameter
+        frame.origin.x = CGFloat(normalized) + firstFrame.origin.x - 1.0
+        frame.origin.y -= 1.0
+        frame.size.width = frame.height * CGFloat(mult) + 2.0
+        frame.size.height = self.diameter + 2.0
+//        frame.origin.x = CGFloat(normalized) + firstFrame.origin.x
+//        frame.size.width = frame.height * CGFloat(mult)
+//        frame.size.height = self.diameter
 
         active.frame = frame
     }
@@ -83,7 +87,9 @@ open class CHIPageControlAleppo: CHIBasePageControl {
         let y = (self.bounds.size.height - self.diameter)*0.5
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
 
-        active.cornerRadius = self.radius
+        active.cornerRadius = self.radius + 2.0
+//        active.cornerRadius = self.radius
+      
         active.backgroundColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
         active.frame = frame
 
